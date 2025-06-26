@@ -1,14 +1,14 @@
 {
   "students": [
     {
-      "name": "Hasena",
-      "email": "hasena@gmail.com",
-      "id": "afb8"
-    },
-    {
-      "name": "Aafrin Nazer",
+      "name": "Aafrin P Nazer",
       "email": "aafynazer1996@gmail.com",
       "id": "c835"
+    },
+    {
+      "id": "7b5c",
+      "name": "Sheik",
+      "email": "sheik@gmail.com"
     }
   ]
 }
