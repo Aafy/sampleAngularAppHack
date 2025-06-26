@@ -1,0 +1,22 @@
+<div class="spinner-border text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span class="visually-hidden" role="status">Loading...</span>
+</button>
+
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  <span role="status">Loading...</span>
+</button>
+
+<h3>Page Level Loader</h3>
+<div id="loading-overlay" [ngClass]="{ hidden: (loading$ | async) === false }">
+  <div class="spinner"></div>
+</div>

@@ -1,10 +1,30 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import {
+  ActivatedRoute,
+  Router,
+  RouterModule,
+  RouterOutlet,
+} from '@angular/router';
+import { ToastComponent } from './components/toast/toast.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [
+        AppComponent,
+        CommonModule,
+        RouterOutlet,
+        RouterModule,
+        ToastComponent,
+      ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 
@@ -24,6 +44,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, sample-angular-app');
+    expect(compiled.querySelector('h4')?.textContent).toContain(
+      'Pipe Use cases:'
+    );
   });
 });

@@ -1,0 +1,12 @@
+<h3>Button with loading functionality</h3>
+
+<button class="btn btn-danger" (click)="showLoading()">Show Loading</button>
+
+<button class="btn btn-dark" (click)="stopLoading()">Stop Loading</button>
+
+<button class="btn btn-info" [disabled]="(loadingState$ | async) === true">
+  <ng-container *ngIf="(loadingState$ | async) === true">
+    <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+  </ng-container>
+  {{ (loadingState$ | async) === true ? "LOADING" : "DONE" }}
+</button>
