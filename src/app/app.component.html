@@ -1,5 +1,5 @@
 <header class="main-header">
-  <ul (click)="hideContainer = true">
+  <ul>
     <li>
       <a routerLink="/spinner" routerLinkActive="active">Spinner</a>
     </li>
@@ -14,7 +14,7 @@
     </li>
     <li style="float: right">
       <a
-        routerLink="/"
+        routerLink="/home"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         >Home</a
@@ -24,24 +24,5 @@
 </header>
 
 <main>
-  <div class="container">
-    <ng-container *ngIf="!hideContainer">
-      <h1>Welcome to the Sample Angular App!</h1>
-      <p>
-        This is a simple Angular application demonstrating various features.
-      </p>
-      <h4>Pipe Use cases:</h4>
-      <ul>
-        <li>{{ "aHu" | casing }}</li>
-        <li>{{ "ahu" | casing : "L" }}</li>
-        <li>{{ "ahu" | casing : "U" }}</li>
-      </ul>
-
-      <br />
-      <h4>Directive:</h4>
-      <strong appHighlight>This will be highlighted!</strong>
-    </ng-container>
-
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </main>
