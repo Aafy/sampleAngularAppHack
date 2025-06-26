@@ -1,14 +1,44 @@
 {
   "students": [
     {
-      "name": "Aafrin P Nazer",
-      "email": "aafynazer1996@gmail.com",
-      "id": "c835"
+      "name": "Sheik",
+      "email": "sheik2226@gmail.com",
+      "gender": "Male",
+      "communications": [
+        "SMS",
+        "EMAIL",
+        "CALL"
+      ],
+      "id": "7b5c"
     },
     {
-      "id": "7b5c",
-      "name": "Sheik",
-      "email": "sheik@gmail.com"
+      "id": "3985",
+      "name": "Hasena",
+      "email": "aafynazer1996@gmail.com",
+      "gender": "Male",
+      "communications": [
+        "SMS",
+        "CALL"
+      ]
+    },
+    {
+      "id": "1a56",
+      "name": "SAD",
+      "email": "aafynazer1996@gmail.com",
+      "gender": "Male",
+      "communications": [
+        "SMS"
+      ]
+    },
+    {
+      "id": "889f",
+      "name": "Student",
+      "email": "stu@gmail.com",
+      "gender": "Female",
+      "communications": [
+        "EMAIL",
+        "CALL"
+      ]
     }
   ]
 }

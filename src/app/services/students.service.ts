@@ -16,7 +16,7 @@ export class StudentsService {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  addStudent(student: Partial<{ name: string | null; email: string | null }>) {
+  addStudent(student: any) {
     return this.http.post(this.url, student);
   }
 
@@ -24,10 +24,7 @@ export class StudentsService {
     return this.http.delete(`${this.url}/${id}`);
   }
 
-  editStudent(
-    id: string,
-    student: Partial<{ name: string | null; email: string | null }>
-  ) {
+  editStudent(id: string, student: any) {
     return this.http.put(`${this.url}/${id}`, student);
   }
 }

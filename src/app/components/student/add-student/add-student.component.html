@@ -41,6 +41,50 @@
     >
   </div>
 
+  <fieldset class="row mb-3">
+    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="Male"
+          value="Male"
+          formControlName="gender"
+          checked
+        />
+        <label class="form-check-label" for="Male"> Male </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="Female"
+          value="Female"
+          formControlName="gender"
+        />
+        <label class="form-check-label" for="Female"> Female </label>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="form-group">
+    <label for="communication">Communication</label>
+
+    <div class="form-check" formArrayName="communications">
+      <div *ngFor="let method of communicationOptions; let i = index">
+        <label class="form-check-label" for="{{ method }}">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [formControlName]="i"
+          />
+          {{ method }}
+        </label>
+      </div>
+    </div>
+  </div>
+
   <br />
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

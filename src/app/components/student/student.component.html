@@ -4,6 +4,8 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Communication</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -13,6 +15,15 @@
       <th scope="row">{{ student.id }}</th>
       <td>{{ student.name }}</td>
       <td>{{ student.email }}</td>
+      <td>{{ student.gender }}</td>
+      <td>
+        <ng-container *ngFor="let com of student.communications; let i = index"
+          >{{ com
+          }}<span *ngIf="i !== student.communications.length - 1">{{
+            ","
+          }}</span>
+        </ng-container>
+      </td>
       <td>
         <i
           (click)="deleteStudent(student.id)"
