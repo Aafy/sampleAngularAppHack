@@ -1,36 +1,40 @@
 <div class="todos-container">
   <h2>My Todos</h2>
 
+  <div *ngIf="loading$ | async" class="loading-indicator">Loading todos...</div>
+  <!-- <div *ngIf="error$ | async as error" class="error-message">
+    Error: {{ error.message }}
+  </div> -->
+
   <div class="add-todo">
     <input
       type="text"
       placeholder="What needs to be done?"
       [(ngModel)]="newTodo"
-      (keyup.enter)="addTodo()"
+      (keyup.enter)="onAddTodo()"
     />
-
-    <button (click)="addTodo()">Add Todo</button>
+    <button (click)="onAddTodo()">Add Todo</button>
   </div>
 
-  <ul class="todos-list">
+  <ul class="todo-list">
     <li *ngFor="let todo of todos$ | async" [class.completed]="todo.completed">
       <input
         type="checkbox"
         [checked]="todo.completed"
-        (change)="toggleTodo(todo.id)"
+        (change)="onToggleTodo(todo.id)"
       />
       <span>{{ todo.title }}</span>
-      <button class="delete-button" (click)="deleteTodo(todo.id)">X</button>
+      <button class="delete-button" (click)="onDeleteTodo(todo.id)">X</button>
     </li>
   </ul>
 
   <div class="actions">
     <button
-      [disabled]="!(hasCompletedTodo$ | async)"
       (click)="onClearCompleted()"
+      [disabled]="!(hasCompletedTodos$ | async)"
     >
       Clear Completed
     </button>
-    <span>{{ remainingTodoCount$ | async }} items left</span>
+    <span>{{ remainingTodosCount$ | async }} items left</span>
   </div>
 </div>

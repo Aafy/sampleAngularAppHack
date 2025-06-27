@@ -4,10 +4,12 @@ import {
   addTodo,
   clearCompletedTodos,
   deleteTodo,
+  loadTodos,
+  loadTodosSuccess,
   toggleTodo,
 } from './todo.action';
 
-export const initialState: ITodoState = { todos: [] };
+export const initialState: ITodoState = { todos: [], loading: false };
 
 export const todoReducer = createReducer(
   initialState,
@@ -18,6 +20,7 @@ export const todoReducer = createReducer(
       title: action.title,
       id: todos.length + 1,
       completed: false,
+      userId: 1,
     };
     return { ...state, todos: [...todos, newTodo] };
   }),
@@ -37,5 +40,11 @@ export const todoReducer = createReducer(
   }),
   on(clearCompletedTodos, (state: ITodoState) => {
     return { ...state, todos: state.todos.filter((todo) => !todo.completed) };
+  }),
+  on(loadTodos, (state: ITodoState) => {
+    return { ...state, loading: true };
+  }),
+  on(loadTodosSuccess, (state: ITodoState, action: { todos: ITodo[] }) => {
+    return { ...state, todos: action.todos, loading: false };
   })
 );
