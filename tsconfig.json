@@ -2,6 +2,8 @@
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
+  "include": ["api/**/*.ts"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "strict": true,
