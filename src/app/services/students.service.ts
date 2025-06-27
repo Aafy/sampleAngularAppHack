@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class StudentsService {
-  url = 'http://localhost:3000/students';
+  url = 'https://sample-angular-app-hack.vercel.app/api/students';
   constructor(private http: HttpClient) {}
 
   getAllStudents() {
