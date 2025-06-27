@@ -1,12 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import {
-  ActivatedRoute,
-  Router,
-  RouterModule,
-  RouterOutlet,
-} from '@angular/router';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
 import { ToastComponent } from './components/toast/toast.component';
 
 describe('AppComponent', () => {

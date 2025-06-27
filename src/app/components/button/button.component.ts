@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-button',
@@ -8,7 +8,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnDestroy {
   loadingState$ = new BehaviorSubject<boolean>(true);
 
   showLoading() {

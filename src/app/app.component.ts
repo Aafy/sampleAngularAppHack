@@ -11,7 +11,4 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'sample-angular-app';
-
-  hideContainer = false;
-  constructor() {}
 }

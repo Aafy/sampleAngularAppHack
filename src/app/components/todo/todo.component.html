@@ -1,0 +1,36 @@
+<div class="todos-container">
+  <h2>My Todos</h2>
+
+  <div class="add-todo">
+    <input
+      type="text"
+      placeholder="What needs to be done?"
+      [(ngModel)]="newTodo"
+      (keyup.enter)="addTodo()"
+    />
+
+    <button (click)="addTodo()">Add Todo</button>
+  </div>
+
+  <ul class="todos-list">
+    <li *ngFor="let todo of todos$ | async" [class.completed]="todo.completed">
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="toggleTodo(todo.id)"
+      />
+      <span>{{ todo.title }}</span>
+      <button class="delete-button" (click)="deleteTodo(todo.id)">X</button>
+    </li>
+  </ul>
+
+  <div class="actions">
+    <button
+      [disabled]="!(hasCompletedTodo$ | async)"
+      (click)="onClearCompleted()"
+    >
+      Clear Completed
+    </button>
+    <span>{{ remainingTodoCount$ | async }} items left</span>
+  </div>
+</div>

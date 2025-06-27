@@ -1,13 +1,18 @@
 import { Routes } from '@angular/router';
-import { SpinnerComponent } from './components/spinner/spinner.component';
-import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./components/home/home.component').then((m) => m.HomeComponent),
+  },
   {
     path: 'spinner',
-    component: SpinnerComponent,
+    loadComponent: () =>
+      import('./components/spinner/spinner.component').then(
+        (m) => m.SpinnerComponent
+      ),
   },
   {
     path: 'search',
@@ -50,5 +55,10 @@ export const routes: Routes = [
       import('./components/student/edit-student/edit-student.component').then(
         (m) => m.EditStudentComponent
       ),
+  },
+  {
+    path: 'todo',
+    loadComponent: () =>
+      import('./components/todo/todo.component').then((m) => m.TodoComponent),
   },
 ];

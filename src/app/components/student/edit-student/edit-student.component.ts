@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '../../../services/students.service';
 import { CommonModule } from '@angular/common';
 import {
@@ -17,7 +17,7 @@ import { tap } from 'rxjs';
   templateUrl: './edit-student.component.html',
   styleUrl: './edit-student.component.scss',
 })
-export class EditStudentComponent {
+export class EditStudentComponent implements OnInit {
   showMessage = false;
   communicationOptions = ['SMS', 'EMAIL', 'CALL'];
   editStudentForm = new FormGroup({
@@ -26,7 +26,7 @@ export class EditStudentComponent {
     gender: new FormControl('Male'),
     communications: new FormArray([]),
   });
-  studentId: string = '';
+  studentId = '';
 
   constructor(
     private studentService: StudentsService,

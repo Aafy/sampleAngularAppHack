@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './spinner.component.html',
   styleUrl: './spinner.component.scss',
 })
-export class SpinnerComponent implements OnInit {
+export class SpinnerComponent implements OnInit, OnDestroy {
   loading$ = new BehaviorSubject<boolean>(true);
   ngOnInit(): void {
     setTimeout(() => {
